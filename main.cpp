@@ -77,6 +77,8 @@ int main(){
             if(ImGui::Button("Clear Pixels")){
                 initPixels(pixels, WIDTH * HEIGHT * 4, backgroundColour);
             }
+
+            ImGui::Checkbox("Draw Lines", &pendulum.drawLines);
             
             ImGui::SliderInt("Mass1", &guiData.m1, 0, 100);
             ImGui::SliderInt("Mass2", &guiData.m2, 0, 100);

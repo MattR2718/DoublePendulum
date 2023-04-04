@@ -8,7 +8,7 @@ find_package(imgui CONFIG REQUIRED)
 find_package(ImGui-SFML CONFIG REQUIRED)
 find_package(implot CONFIG REQUIRED)
 
-add_executable(${PROJECT_NAME} main.cpp sphere.cpp light.cpp pendulum.cpp)
+add_executable(${PROJECT_NAME} main.cpp sphere.cpp light.cpp pendulum.cpp line.cpp)
 
 target_link_libraries(${PROJECT_NAME}
     imgui::imgui

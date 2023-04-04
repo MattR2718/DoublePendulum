@@ -5,6 +5,7 @@
 
 #include "sphere.h"
 #include "guiData.h"
+#include "line.h"
 
 #define PI 3.14159
 
@@ -20,6 +21,8 @@ public:
     double tx1_a = 0, tx2_a = 0;
     double damping = 0.999;
     double g = 5;
+
+    bool drawLines = false;
 
 
     Pendulum(int x_ = 0, int y_ = -400, int z_ = 0);

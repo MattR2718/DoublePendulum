@@ -61,6 +61,12 @@ void Pendulum::draw(sf::Uint8 *pixels, const int WIDTH, const int HEIGHT, Light 
     Sphere bob1(this->x1, this->y1, this->z1, this->m1 * 5, 0, 255, 0, 255);
     Sphere bob2(this->x2, this->y2, this->z2, this->m2 * 5, 0, 0, 255, 255);
 
+    if(drawLines){
+        Line line1(this->x0, this->x1, this->y0, this->y1, 255, 0, 0);
+        line1.draw(pixels, WIDTH, HEIGHT);
+        Line line2(this->x1, this->x2, this->y1, this->y2, 255, 0, 0);
+        line2.draw(pixels, WIDTH, HEIGHT);
+    }
 
     bob0.draw(pixels, WIDTH, HEIGHT, light);
     bob1.draw(pixels, WIDTH, HEIGHT, light);
