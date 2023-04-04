@@ -11,11 +11,11 @@
 #include "pendulum.h"
 #include "guiData.h"
 
-void initPixels(sf::Uint8 *arr, const int length, sf::Uint8* colour){
+void initPixels(sf::Uint8 *arr, const int length, float* colour){
     for (int i = 0; i < length; i += 4){
-        arr[i] = colour[0];
-        arr[i + 1] = colour[1];
-        arr[i + 2] = colour[2];
+        arr[i] = 255 * colour[0];
+        arr[i + 1] = 255 * colour[1];
+        arr[i + 2] = 255 * colour[2];
         arr[i + 3] = 255;
     }
 }
@@ -28,7 +28,7 @@ int main(){
     auto _ = ImGui::SFML::Init(window);
     //ImGui::CreateContext();
 
-    sf::Uint8 backgroundColour[3] = {128, 200, 200};
+    float backgroundColour[] = {0.5f, 0.8f, 0.8f};
     sf::Uint8* pixels  = new sf::Uint8[WIDTH * HEIGHT * 4];
     initPixels(pixels, WIDTH * HEIGHT * 4, backgroundColour);
 
@@ -36,7 +36,7 @@ int main(){
 
     Sphere s(0, 0, 0, 250, 255, 255, 255, 255);
 
-    Pendulum pendulum(0, -HEIGHT/2 * 0.6, 0);
+    Pendulum pendulum(0, -HEIGHT/2 * 0.3, 0);
     GuiData guiData;
 
     
@@ -73,6 +73,7 @@ int main(){
         }
 
         if(ImGui::CollapsingHeader("Options", ImGuiTreeNodeFlags_DefaultOpen)){
+            ImGui::ColorEdit3("Background Colour", (float*)&backgroundColour);
             ImGui::Checkbox("Clear Pixels Each Frame", &guiData.clearPixels);
             if(ImGui::Button("Clear Pixels")){
                 initPixels(pixels, WIDTH * HEIGHT * 4, backgroundColour);

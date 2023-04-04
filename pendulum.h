@@ -15,7 +15,7 @@ public:
     int x1, y1, z1;
     int x2, y2, z2;
     int m1 = 20, m2 = 20;
-    int l1 = 800, l2 = 800;
+    int l1 = 600, l2 = 600;
     double tx1 = PI/2, tx2 = PI/2;
     double tx1_v = 0, tx2_v = 0;
     double tx1_a = 0, tx2_a = 0;
